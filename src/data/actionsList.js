@@ -32,7 +32,7 @@ export const someActions = [
   },
 ];
 
-export const subject = [
+export const subjects = [
   {
     subject: "animals",
     animallist: [
@@ -133,7 +133,7 @@ export const adjectives = [
 
 export const scenarios = ["contemplating life", "in space", "riding a bike"];
 
-export const style = [
+export const styles = [
   "3-4 panel comic",
   "realistic",
   "abstract",
@@ -142,7 +142,7 @@ export const style = [
   "collage",
 ];
 
-// export default "this is the default thing";
+export default "this is the default thing";
 
 // export default {
 //   actions: actions,

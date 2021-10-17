@@ -7,7 +7,8 @@ import Fun from "./data/fun";
 function App() {
   return (
     <div className="App">
-      <Randomizer />
+      <></>
+      {/* <Randomizer /> */}
     </div>
   );
 }
