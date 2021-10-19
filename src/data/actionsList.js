@@ -1,6 +1,8 @@
 export const someActions = [
   {
     action: "Draw",
+    article: false,
+    preposition: true,
     subactions: [
       "ink",
       "graphite",
@@ -13,10 +15,14 @@ export const someActions = [
   },
   {
     action: "Paint",
+    article: false,
+    preposition: true,
     subactions: ["acrylic", "oil", "watercolor", "spraypaint"],
   },
   {
     action: "Sculpt",
+    article: false,
+    preposition: true,
     subactions: [
       "cardboard",
       "clay",
@@ -28,6 +34,8 @@ export const someActions = [
   },
   {
     action: "Design",
+    article: true,
+    preposition: false,
     subactions: ["logo", "product", "advertisement", "poster", "pattern"],
   },
 ];

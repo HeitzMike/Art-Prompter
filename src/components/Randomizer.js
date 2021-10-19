@@ -8,22 +8,34 @@ import {
   scenarios,
 } from "../data/actionsList";
 
+import a from "indefinite";
+
 export default function Randomizer() {
-  let randomAction = Math.floor(Math.random() * someActions.length);
-  // let randIndex = Math.floor(Math.random() * randomAction.subactions.length);
-  // let randomSubActions = Math.floor(Math.random() * props[randomAction].length);
-  let randomSubAction = Math.floor(
-    Math.random() * someActions[randomAction].subactions.length
-  );
-  console.log(someActions[randomAction]);
-  // console.log(someActions[randIndex]);
+  const getRandomElement = (list) => {
+    let randomIndex = Math.floor(Math.random() * list.length);
+    return list[randomIndex];
+  };
+
+  const renderActionText = () => {
+    const randomAction = getRandomElement(someActions);
+    const randomSubAction = getRandomElement(randomAction.subactions);
+    let text = "";
+    text += randomAction.action + " ";
+    if (randomAction.preposition) {
+      text += "with ";
+    }
+    if (randomAction.article) {
+      text += a(randomSubAction);
+    } else {
+      text += randomSubAction;
+    }
+
+    return text;
+  };
+
   return (
     <>
-      <div className="randomBox">
-        {someActions[randomAction].action +
-          " with " +
-          someActions[randomAction].subactions[randomSubAction]}
-      </div>
+      <div className="randomBox">{renderActionText()}</div>
     </>
   );
 }
