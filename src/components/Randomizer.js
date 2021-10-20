@@ -13,7 +13,7 @@ import a from "indefinite";
 import { useState, useEffect } from "react";
 
 export default function Randomizer() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState("Click Generate For A Prompt!");
   const [actionsList, setActionsList] = useState(someActions);
 
   // 1. change randomizers to generate from the list stored in state instead
@@ -78,7 +78,9 @@ export default function Randomizer() {
   return (
     <>
       <div className="randomBox">{text}</div>
-      <button onClick={setRandomText}>Generate</button>
+      <button className="genButton" onClick={setRandomText}>
+        Generate
+      </button>
     </>
   );
 }

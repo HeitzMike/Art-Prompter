@@ -4,3 +4,9 @@
   margin: 50px 0 0 0;
   padding: 20px 0 25px 0;
 }
+
+.genButton {
+  padding: 10px;
+  display: block;
+  margin: 20px auto;
+}
