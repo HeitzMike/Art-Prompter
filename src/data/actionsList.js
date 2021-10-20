@@ -3,6 +3,7 @@ export const someActions = [
     action: "Draw",
     article: false,
     preposition: true,
+    selected: true,
     subactions: [
       "ink",
       "graphite",

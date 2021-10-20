@@ -8,7 +8,7 @@ import { someActions } from "./data/actionsList";
 function App() {
   return (
     <div className="App">
-      <Randomizer someActions />
+      <Randomizer />
     </div>
   );
 }
