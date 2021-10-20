@@ -19,13 +19,33 @@ export default function Randomizer() {
   const renderActionText = () => {
     const randomAction = getRandomElement(someActions);
     const randomSubAction = getRandomElement(randomAction.subactions);
+    const randomSubject = getRandomElement(subjects);
+    const randomSubSubject = getRandomElement(randomSubject.list);
+    const randomAdjective = getRandomElement(adjectives);
+    const randomScenario = getRandomElement(scenarios);
+    const randomStyle = getRandomElement(styles);
+
     let text = "";
     text += randomAction.action + " ";
+
+    text += " a " + randomAdjective + " ";
+    text += randomStyle + " ";
+
+    if (randomSubject.list === false) {
+      text += randomSubject + " ";
+      console.log(randomSubject);
+    } else {
+      text += randomSubSubject + " ";
+      console.log(randomSubSubject);
+    }
+
+    text += randomScenario + " ";
+
     if (randomAction.preposition) {
-      text += "with ";
+      text += " with ";
     }
     if (randomAction.article) {
-      text += a(randomSubAction);
+      text += " as " + a(randomSubAction);
     } else {
       text += randomSubAction;
     }

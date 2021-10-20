@@ -43,7 +43,7 @@ export const someActions = [
 export const subjects = [
   {
     subject: "animals",
-    animallist: [
+    list: [
       "hippo",
       "armadillo",
       "mantee",
@@ -74,12 +74,12 @@ export const subjects = [
 
   {
     subject: "monsters",
-    monsterlist: ["demon", "slenderman", "witch", "djinn"],
+    list: ["demon", "slenderman", "witch", "djinn"],
   },
 
   {
     subject: "dinosaurs",
-    dinosaurlist: ["trex", "velociraptor", "stegosaurus", "triceratops"],
+    list: ["trex", "velociraptor", "stegosaurus", "triceratops"],
   },
   {
     subject: "cryptids",
@@ -95,10 +95,12 @@ export const subjects = [
 
   {
     subject: "still life",
+    list: false,
   },
 
   {
     subject: "hybrid",
+    list: false,
   },
 ];
 
