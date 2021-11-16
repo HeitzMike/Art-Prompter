@@ -1,20 +1,22 @@
-// import LISTY from "../data/actionList";
-import actionsList, {
+import {
   someActions,
   subjects,
   styles,
-  stuffList,
+  //stuffList, TODO add stuff list to the string at some point?
   adjectives,
   scenarios,
 } from "../data/actionsList";
 
-import a from "indefinite";
+import a from "indefinite"; //indefinite npm function installed
 
 import { useState, useEffect } from "react";
 
 export default function Randomizer() {
-  const [text, setText] = useState("Click Generate For A Prompt!");
+  const [text, setText] = useState("Click Generate For A Randomized Prompt!");
+
   const [actionsList, setActionsList] = useState(someActions);
+
+  // TODO big list
 
   // 1. change randomizers to generate from the list stored in state instead
   // 2. render the controls for the different actions and subjects
@@ -28,39 +30,52 @@ export default function Randomizer() {
   //   setRandomText();
   // }, []);
 
+  // produces a random index from array
   const getRandomElement = (list) => {
     let randomIndex = Math.floor(Math.random() * list.length);
     return list[randomIndex];
   };
 
   const setRandomText = () => {
+    //this is the start of how toggle on and off of certain indexes will start, property "selected" in actionsList
     const filteredActions = actionsList.filter((action) => {
       return (action.selected = true);
     });
+
+    //getting random indexes from each list and sublist
     const randomAction = getRandomElement(filteredActions);
     const randomSubAction = getRandomElement(randomAction.subactions);
+
     const randomSubject = getRandomElement(subjects);
     const randomSubSubject = getRandomElement(randomSubject.list);
+
     const randomAdjective = getRandomElement(adjectives);
     const randomScenario = getRandomElement(scenarios);
     const randomStyle = getRandomElement(styles);
 
+    //set text to blank and subesquently add to it
     let text = "";
+
+    //string together Action, Adjective, Style, Subject, Scenario, SubAction
+
     text += randomAction.action + " ";
 
-    // TODO: STUFF
-
     text += " a " + randomAdjective + " ";
+
     text += randomStyle + " ";
+    //TODO if style is 3-4 panel comic then style comes right before subject
+    //if style is still life then
 
     if (randomSubject.list === false) {
       text += randomSubject.subject + " ";
     } else {
       text += randomSubSubject + " ";
     }
+    //TODO if hybrid then randomized list + randomized list as subject
 
     text += randomScenario + " ";
 
+    // if index needs preposition or article attach whicever or not
     if (randomAction.preposition) {
       text += " with ";
     }
@@ -70,20 +85,25 @@ export default function Randomizer() {
       text += randomSubAction;
     }
 
+    //console log full sentence
     console.log(text);
 
+    //set blank text to full string of randomized variables
     setText(text);
   };
 
+  //return the random string and a button for generating new randomization
   return (
     <>
       <div className="randomBox">{text}</div>
       <button className="genButton" onClick={setRandomText}>
-        Generate
+        Generate New Prompt
       </button>
     </>
   );
 }
+
+//                       CODE COMMENT HELL
 
 // function indexGetter(array) {
 //   let randomArray = Math.floor(Math.random() * array.length);
